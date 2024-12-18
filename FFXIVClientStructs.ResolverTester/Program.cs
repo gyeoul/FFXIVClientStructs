@@ -8,7 +8,7 @@ using FFXIVClientStructs.ResolverTester;
 using InteropGenerator.Runtime;
 using YamlDotNet.Serialization.NamingConventions;
 
-var gamePath = args.Length > 0 ? args[0] : @"D:\FFXIV\game\ffxiv_dx11.exe";
+var gamePath = args.Length > 0 ? args[0] : @"C:\FF14\game\ffxiv_dx11.exe";
 
 using PEReader reader = new PEReader(File.OpenRead(gamePath));
 SectionHeader textHeader = reader.PEHeaders.SectionHeaders[0];
@@ -39,15 +39,15 @@ unsafe {
         Console.WriteLine($"Resolved count: {resolvedCount} ({((float)resolvedCount / totalSigCount) * 100}%)");
 
         Console.WriteLine("\n=== Broken Signatures ===");
-        var unresolvedSigs = Resolver.GetInstance.Addresses.Where(sig => sig.Value == 0);
-        foreach (var sig in unresolvedSigs)
-            Console.WriteLine($"[FAIL] {sig.Name}: {sig.String}");
-
-        foreach (Address address in Resolver.GetInstance.Addresses)
-            Console.WriteLine($"{address.Name} {address.Value:X}");
+        // var unresolvedSigs = Resolver.GetInstance.Addresses.Where(sig => sig.Value == 0);
+        // foreach (var sig in unresolvedSigs)
+        //     Console.WriteLine($"[FAIL] {sig.Name}: {sig.String}");
+        //
+        // foreach (Address address in Resolver.GetInstance.Addresses)
+        //     Console.WriteLine($"{address.Name} {address.Value:X}");
     }
 }
-/*
+
 using StreamReader dataReader = new StreamReader(@"..\..\..\..\ida\data.yml");
 
 var deserializer = new YamlDotNet.Serialization.DeserializerBuilder().WithNamingConvention(UnderscoredNamingConvention.Instance).Build();
@@ -192,5 +192,5 @@ foreach (string line in notfoundOutputs)
     sb.AppendLine(line);
 
 Console.WriteLine(sb.ToString());
-File.WriteAllText(@"..\..\..\..\ida\data-missmatch2.txt", sb.ToString());
-*/
+File.WriteAllText(@"..\..\..\..\ida\data-mismatch3.txt", sb.ToString());
+
