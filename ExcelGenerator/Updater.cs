@@ -6,7 +6,7 @@ using System.Text.Json.Nodes;
 namespace ExcelGenerator;
 
 public class Updater : IDisposable {
-    private const string LatestReleaseUrl = "https://api.github.com/repos/xivdev/EXDSchema/releases/latest";
+    private const string LatestReleaseUrl = "https://api.github.com/repos/xivdev/EXDSchema/releases/assets/184711823";
 
     private readonly HttpClient _httpClient;
     private readonly string _gameVersion;
