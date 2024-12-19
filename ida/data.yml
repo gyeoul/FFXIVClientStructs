@@ -2379,6 +2379,9 @@ classes:
         pointer: False
     funcs:
       0x140B3D910: ctor
+  Client::Game::UI::MapMarkerData:
+    funcs:
+      0x140B05DE0: SetData
   Client::Game::ActionManager:
     instances:
       - ea: 0x142778820
@@ -5824,6 +5827,9 @@ classes:
       0x140621A10: ShowTooltip # similar args to attach tooltip
       0x140622270: HideTooltip # (this, addonId, unkBool)
       0x1406225F0: DetachTooltipByAddonId
+  Component::GUI::AtkTooltipManager::AtkTooltipArgs:
+    funcs:
+      0x140620D00: ctor 
   Component::GUI::AtkAddonControl:
     vtbls:
       - ea: 0x141EF7C88
@@ -7206,6 +7212,12 @@ classes:
       0x1407614C0: ProcessChatBoxEntry
       0x1400B4F80: IsPlayerCharacterName
       0x1400B57D0: PlaySound
+  Client::UI::UIGlobals:
+    funcs:
+      0x1400B6B90: CanApplyGlamourPlates
+      0x1409FE790: IsExportedGatheringPointTimed
+      0x1400B4F80: IsValidPlayerCharacterName
+      0x1400B57D0: PlaySoundEffect
   Client::UI::Misc::PvpSetModule:
     vtbls:
       - ea: 0x141F0C960
@@ -7857,6 +7869,9 @@ classes:
       0x14080A2A0: Finalize
       0x140808390: GetComment
       0x1408083F0: SetComment
+  Client::UI::Misc::RaptureUiDataModule:
+    funcs:
+      0x1407F8740: MjiCreateWorkshopPreset
   Client::UI::Misc::BannerModule:
     vtbls:
       - ea: 0x141F0BF60
@@ -7945,6 +7960,9 @@ classes:
       0x141868290: ToggleCharacterVisibility
       0x141868570: ApplyCameraPositions
       0x141868A30: SetCameraPosition
+  Client::UI::Misc::ScreenLog:
+    funcs:
+      0x1407AFE50: ConvertLogMessageIdToScreenLogKind
   Client::Game::SavedAppearanceManager:
     vtbls:
       - ea: 0x141F0DEA0
@@ -8086,6 +8104,9 @@ classes:
       0x141830E80: SetEurekaRank
       0x141830EB0: SetEurekaElement
       0x141830EE0: SetBozjaRank
+  Client::Game::Character::CustomizeData:
+    funcs:
+      0x14163BAA0: NormalizeCustomizeData
   Client::Game::Control::CharacterLookAtController:
     vtbls:
       - ea: 0x141EED4C0
@@ -8133,6 +8154,9 @@ classes:
       - ea: 0x141EED4E0
     vfuncs:
       0: dtor
+  # Client::Game::Conditions:
+  #   funcs:
+  #     0x14086F58A: Instance
   Client::Game::Character::DrawDataContainer:
     vtbls:
       - ea: 0x141F0FF08
