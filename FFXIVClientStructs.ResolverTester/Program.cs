@@ -73,8 +73,8 @@ foreach (Address addr in Resolver.GetInstance.Addresses) {
     var functionName = nameWithoutPrefix[(index + 1)..].ToString();
 
     if (!data.Classes.TryGetValue(className, out Class? theClass) || theClass == null) {
-        // notfoundOutputs.Add($"Class {className} not found in data.yml for signature {functionName} @ {addr.String}");
-        // notFoundSigs += 1;
+        notfoundOutputs.Add($"Class {className} not found in data.yml for signature {functionName} @ {addr.String}");
+        notFoundSigs += 1;
         continue;
     }
 

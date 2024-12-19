@@ -1659,7 +1659,7 @@ classes:
       0x14005A6F0: dtor
       0x14005A720: SetString
       0x14005AD50: FormatString
-      0x14005B520: GetString
+#      0x14005B520: GetString
       0x14005D560: Clear
       0x14005A200: Concat
       0x14005A370: ConcatCStr
@@ -1688,6 +1688,8 @@ classes:
       0x14005EBA0: FindFirstOfImpl
       0x1407838A0: ToInteger # strtoi for utf8string (str, base)
       0x1417B7A10: SanitizeString
+      0x140874080: FindFirstOf
+      0x14005E3D0: FindLastOf
   Component::GUI::AtkValue:
     funcs:
       0x140617530: ctor_copy # copy constructor
@@ -1717,6 +1719,8 @@ classes:
       0x1406CAA60: SetInt
       0x1406C8D40: SetString
       # 0x1405A57D0: SetUInt # inlined in AtkDialogue_ReceiveEvent
+      0x1406163C0: ReleaseManagedMemoryInternal
+      0x140615770: ctor
   Component::GUI::AtkEvent:
     funcs:
       0x14061E480: SetEventIsHandled
@@ -2802,6 +2806,7 @@ classes:
         base: Common::Configuration::SystemConfig
     funcs:
       0x140081440: BuildConfigList
+      0x1488800: GetLastWorldId
   Client::System::Configuration::DevConfig:
     vtbls:
       - ea: 0x141E99F98
@@ -3650,6 +3655,8 @@ classes:
   Component::Shell::ShellCommands:
     vtbls:
       - ea: 0x141F08748
+    funcs:
+      0x140781BD0: TryInvokeDebugCommand
   Component::Shell::ShellCommandModule:
     vtbls:
       - ea: 0x141E9AB90
@@ -3958,6 +3965,7 @@ classes:
       0x1401371F0: InviteToPartyContentId
       0x140137210: InviteToPartyInInstanceByEntityId
       0x1401372B0: InviteToPartyInInstanceByContentId
+      # 0x1401372B0: InviteToPartyInInstance # 사용 안함 
   Client::UI::Info::InfoProxyLinkshell:
     vtbls:
       - ea: 0x141EA8308
@@ -4243,6 +4251,8 @@ classes:
       0x1402290B0: ctor
       0x140229000: LoadTexFiles
       0x140228E50: LoadShpkFiles
+      0x1405832F0: PrepareColorTable
+      0x140583D20: ReadStainingTemplate
   Client::System::Resource::Handle::ShaderPackageResourceHandle:
     vtbls:
       - ea: 0x141EBC4A8
@@ -4798,6 +4808,7 @@ classes:
       - ea: 0x14253F640
     funcs:
       0x1403B6EC0: CleanupCharacters
+      0x14258A8B8: GetCurrentCharacter
   Client::UI::Agent::AgentCursor:
     vtbls:
       - ea: 0x141EC8250
@@ -4905,6 +4916,9 @@ classes:
     vtbls:
       - ea: 0x141ED1CF0
         base: Client::Graphics::Singleton
+    funcs:
+      0x1403FBE10: CreateConstantBuffer
+      0x1403FA950: CreateTexture2D
   Client::Graphics::Kernel::DeviceWin:
     vtbls:
       - ea: 0x141ED1CF8
@@ -5328,6 +5342,7 @@ classes:
       0x1405BF010: Finalize
       0x1408C99C0: Create
       0x1405A2900: CreateSlotStorage
+      0x1405BD370: Destroy
   Client::Graphics::Scene::Human:
     vtbls:
       - ea: 0x141EEEA78
@@ -5592,6 +5607,7 @@ classes:
       0x1405D0DE0: GetSheetByName  # (ExdModule* this, char* pcszName) -> ExcelSheet*
       0x1407ACC90: IsColumnRsv  # (ExdModule* this, int nSheetIndex, int nRowId, int nSubRowId, int nColumnIndex) -> bool
       0x140832580: GetItemRowById
+      0x140AC91F0: GetBannerConditionUnlockState
   Component::Exd::Sheets::BannerCondition:
     funcs:
       0x140ACC520: GetUnlockState
@@ -5617,6 +5633,7 @@ classes:
       0x1405D7460: ctor
       0x1405D78B0: ScheduleScreenshot
       0x1405D76A0: Finalize
+      0x1405D59D0: ScheduleScreenShot
   Client::System::Photo::ScreenShot::ScreenShotThread:
     vtbls:
       - ea: 0x141EF1DC0
@@ -6121,6 +6138,17 @@ classes:
       0x1406C2A20: GetAsComponentDragDrop2
       0x1406C2C90: GetAsComponentIcon2
       0x1406C3080: GetAsComponentListItemRenderer2
+      0x14063D580: RemoveEvent
+      0x14063D540: AddEvent
+      0x1406BA710: GetAsAtkHoldButton
+      0x1406A0B80: GetAsAtkTextNineGrid
+      0x14068D9A0: GetAsAtkComponentCheckBox
+      0x14066D8D0: GetAsAtkComponentButton
+      0x1406B7560: GetAsAtkJournalCanvas
+      0x1406AAA70: GetAsAtkComponentScrollBar
+      0x14069F760: GetAsAtkComponentRadioButton
+      0x14069EBD0: GetAsAtkComponentDropdownList
+      0x14067EC90: GetAsAtkComponentList
   Component::GUI::AtkImageNode:
     vtbls:
       - ea: 0x141EF0C28
@@ -6963,6 +6991,7 @@ classes:
         base: Client::UI::Misc::UserFileManager::UserFileEvent
     funcs:
       0x140749CD0: ctor # unused, inlined @ 0x14075CD19
+      0x140748D00: GetKeybind
   Client::UI::RaptureUiDataModule:
     vtbls:
       - ea: 0x141F05880
@@ -7174,6 +7203,9 @@ classes:
       0x140763D00: PropagateLevelChange
       0x140763D50: PropagateClassJobChange
       0x14075C800: ScreenShotCallback
+      0x1407614C0: ProcessChatBoxEntry
+      0x1400B4F80: IsPlayerCharacterName
+      0x1400B57D0: PlaySound
   Client::UI::Misc::PvpSetModule:
     vtbls:
       - ea: 0x141F0C960
@@ -7372,6 +7404,7 @@ classes:
       0x140772C70: ctor
       0x1407735A0: ReadExpression
       0x140773B90: ReadParameter
+      0x142723F10: GetMacroTime
   Component::Text::MacroEncoder:
     vtbls:
       - ea: 0x141F07D40
@@ -7465,6 +7498,7 @@ classes:
       0x1407A2D00: IsNotEmpty
       0x1407A2D40: SetIcon
       0x140ED36A0: Copy
+#      0x1407A2D00: IsEmpty
   Client::UI::Misc::RaptureTextModule:
     vtbls:
       - ea: 0x141F0C098
@@ -7517,6 +7551,8 @@ classes:
       0x1407AD7E0: GetTextChecker
       0x1407AE1C0: Update
       0x1407AEA00: FormatAddonTextApply
+      0x1407A7670: FormatAddonText1IntIntUInt
+      0x1407A9A30: FormatAddonText2IntInt
   Client::UI::Misc::RaptureLogModule:
     vtbls:
       - ea: 0x141F0C310
@@ -7539,6 +7575,10 @@ classes:
       0x1407B9450: GetLogMessageDetail
       0x1407BCFD0: FormatLogMessage
       0x1407BCC20: AddMsgSourceEntry
+      0x1407B5AF0: ShowLogMessageString
+      0x1407B5640: ShowLogMessageUIntUIntUInt
+      0x1407B51F0: ShowLogMessageUIntUInt
+      0x1407B4CF0: ShowLogMessageUInt
   Component::Prohibit::ProhibitModuleInterface:
     vtbls:
       - ea: 0x141F1F3D8
@@ -7660,6 +7700,8 @@ classes:
       0x1407C13F0: GetAdjustedCommandId  # ???
       0x1407C2530: LoadMacroSlot
       0x1407BFAB0: GetSlotActionCooldownPercentage  # (this, out int, int) -> int
+      0x1407C0A20: LoadIconId
+      0x1407C01A0: GetApparentIconRecastCharges
   Client::UI::Misc::RaptureHotbarModule::DutyActionSlot:
     funcs:
       0x1407C8BF0: Initialize
@@ -10830,6 +10872,7 @@ classes:
       0x140BA3FA0: OpenRecipeByItemId
       0x140BAC6C0: CanCraft
       0x140BAA500: SearchRecipe
+      0x140BA3E80: OpenRecipeByRecipeIdInternal
   Client::UI::Agent::RecipeSearchContext:
     vtbls:
       - ea: 0x141F4ED60
@@ -16760,6 +16803,11 @@ classes:
     funcs:
       0x140060660: Free
       0x141B2AB10: Memset
+      0x14062030: GetDefaultSpace
+      0x140620F0: GetApricotSpace
+      0x14062110: GetAnimationSpace
+      0x14062130: GetUISpace
+      0x14062150: GetSoundSpace
   Client::System::Memory::IMemoryModule:
     vtbls:
       - ea: 0x141E91908
