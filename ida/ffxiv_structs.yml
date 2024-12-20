@@ -16226,6 +16226,94 @@ structs:
     - type: Component::Excel::ExcelRow*
       name: row
   member_functions: []
+- type: Component::Excel::Sheets::AOZArrangement
+  name: AOZArrangement
+  namespace: Component.Excel.Sheets
+  union: False
+  size: 4
+  fields:
+  - type: unsigned __int16
+    name: AOZContentBriefingBNpc
+    offset: 0
+  - type: unsigned __int16
+    name: Position
+    offset: 2
+  member_functions: []
+- type: Component::Excel::Sheets::ContentDirectorBattleTalk
+  name: ContentDirectorBattleTalk
+  namespace: Component.Excel.Sheets
+  union: False
+  size: 12
+  fields:
+  - type: unsigned int
+    name: Unknown0
+    offset: 0
+  - type: unsigned int
+    name: Unknown1
+    offset: 4
+  - type: unsigned __int16
+    name: Unknown2
+    offset: 8
+  - type: byte
+    name: Unknown3
+    offset: 10
+  - type: byte
+    name: Unknown4
+    offset: 11
+  member_functions: []
+- type: Component::Excel::Sheets::MJIGardenscaping
+  name: MJIGardenscaping
+  namespace: Component.Excel.Sheets
+  union: False
+  size: 28
+  fields:
+  - type: int
+    name: Unknown0
+    offset: 0
+  - type: int
+    name: Unknown1
+    offset: 4
+  - type: int
+    name: Unknown2
+    offset: 8
+  - type: int
+    name: Item
+    offset: 12
+  - type: int
+    name: Unknown3
+    offset: 16
+  - type: unsigned __int16
+    name: Unknown4
+    offset: 20
+  - type: unsigned __int16
+    name: Unknown5
+    offset: 22
+  - type: unsigned __int16
+    name: Unknown6
+    offset: 24
+  - type: byte
+    name: Level
+    offset: 26
+  member_functions: []
+- type: Component::Excel::Sheets::ZoneTimeline
+  name: ZoneTimeline
+  namespace: Component.Excel.Sheets
+  union: False
+  size: 8
+  fields:
+  - type: unsigned int
+    name: Unknown0
+    offset: 0
+  - type: byte
+    name: Unknown1
+    offset: 4
+  - type: byte
+    name: Unknown2
+    offset: 5
+  - type: byte
+    name: Unknown3
+    offset: 6
+  member_functions: []
 - type: Component::Exd::ExdModule
   name: ExdModule
   namespace: Component.Exd
@@ -59779,7 +59867,7 @@ structs:
       name: this
     - type: unsigned __int16
       name: height
-  - signature: E8 ?? ?? ?? ?? 3C 01 75 7F
+  - signature: E8 ?? ?? ?? ?? 3C ?? 0F 85 ?? ?? ?? ?? C7 83
     return_type: byte
     name: IsVisible
     parameters:
@@ -70958,7 +71046,7 @@ structs:
       name: this
     - type: byte*
       name: str
-  - signature: E8 ?? ?? ?? ?? 84 C0 0F 84 ?? ?? ?? ?? 48 8D 96 ?? ?? ?? ?? 48 8D 4C 24
+  - signature: E8 ?? ?? ?? ?? 84 C0 0F 84 ?? ?? ?? ?? 48 8D 4D ?? E8 ?? ?? ?? ?? 48 8B D0
     return_type: byte
     name: GetLogMessage
     parameters:
@@ -72340,7 +72428,7 @@ structs:
     - type: byte
       name: a2
   member_functions:
-  - signature: E8 ?? ?? ?? ?? 45 88 74 24
+  - signature: E8 ?? ?? ?? ?? 45 88 77 ?? E9 ?? ?? ?? ?? 83 BB
     return_type: void
     name: OpenContextMenu
     parameters:
@@ -129958,37 +130046,37 @@ structs:
   - type: byte
     name: AddonAllocators
     offset: 34808
-    size: 34920
+    size: 34120
   - type: StdVector<Client::System::String::Utf8String>
     name: AddonNames
-    offset: 69728
+    offset: 68928
   - type: Client::UI::Misc::AddonConfig*
     name: AddonConfigPtr
-    offset: 69752
+    offset: 68952
   - type: Client::UI::UIModule*
     name: UIModulePtr
-    offset: 69936
+    offset: 69920
   - type: Client::UI::Misc::RaptureLogModule*
     name: RaptureLogModulePtr
-    offset: 69944
+    offset: 69928
   - type: Client::UI::Agent::AgentModule
     name: AgentModule
-    offset: 69952
+    offset: 69936
   - type: Client::UI::Misc::RaptureHotbarModule*
     name: RaptureHotbarModulePtr
-    offset: 73576
+    offset: 73560
   - type: Client::UI::RaptureAtkUnitManager
     name: RaptureAtkUnitManager
-    offset: 73584
+    offset: 73568
   - type: Client::UI::RaptureAtkColorDataManager
     name: RaptureAtkColorDataManager
-    offset: 113800
+    offset: 113784
   - type: int
     name: NameplateInfoCount
-    offset: 114440
+    offset: 114424
   - type: Client::UI::RaptureAtkModule::NamePlateInfo
     name: NamePlateInfoEntries
-    offset: 114448
+    offset: 114432
     size: 50
   - type: Client::UI::RaptureAtkModule::CrystalCache
     name: CrystalItemCache
